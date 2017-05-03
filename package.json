@@ -1,0 +1,26 @@
+{
+  "name": "miko",
+  "version": "1.0.0",
+  "description": "A Touhou-inspired JS clone",
+  "main": "lib/miko.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WilsonMinFong/miko.git"
+  },
+  "author": "Wilson Fong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WilsonMinFong/miko/issues"
+  },
+  "homepage": "https://github.com/WilsonMinFong/miko#readme",
+  "dependencies": {
+    "CreateJS": "github:createjs/combined",
+    "script-loader": "^0.7.0"
+  }
+}
