@@ -4,39 +4,36 @@
     <meta charset="utf-8">
     <title>Miko: A Touhou-inspired JS Clone</title>
     <script src="lib/bundle.js" charset="utf-8"></script>
-    <style>
-      #gameCanvas {
-        background-image: url("./assets/bg1.png");
-        background-repeat: no-repeat;
-        background-size: cover;
-      }
-
-      body {
-        display: flex
-      }
-    </style>
+    <link href="https://fonts.googleapis.com/css?family=Freckle+Face" rel="stylesheet">
+    <script src="https://use.fontawesome.com/76a34459e2.js"></script>
+    <link rel="stylesheet" href="assets/style.css">
   </head>
   <body>
+    <div id="instructionsModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>Instructions</p>
+      </div>
+    </div>
+
     <canvas id="gameCanvas" width="650" height="750"></canvas>
 
     <div class="information-bar">
       <div class="stats">
         <table>
           <tr>
-            <th><img src="./assets/Score.png" alt="Score Header"></th>
+            <th>Score</th>
             <td id="current-score">0000000000</td>
           </tr>
           <tr>
-
-          </tr>
-          <tr>
-            <th><img src="./assets/Player.png" alt="Player Life Header"></th>
+            <th>Lives</th>
             <td id="lives">
-              <img src="./assets/life.png" alt="life">
-              <img src="./assets/life.png" alt="life">
-              <img src="./assets/life.png" alt="life">
-              <img src="./assets/life.png" alt="life">
-              <img src="./assets/life.png" alt="life">
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
             </td>
           </tr>
         </table>
