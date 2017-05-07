@@ -6,8 +6,9 @@
     <script src="lib/bundle.js" charset="utf-8"></script>
     <style>
       #gameCanvas {
-        background-image:
-          linear-gradient(blue, purple);
+        background-image: url("./assets/bg1.png");
+        background-repeat: no-repeat;
+        background-size: cover;
       }
 
       body {
@@ -22,11 +23,14 @@
       <div class="stats">
         <table>
           <tr>
-            <th>Score</th>
+            <th><img src="./assets/Score.png" alt="Score Header"></th>
             <td id="current-score">0000000000</td>
           </tr>
           <tr>
-            <th>Lives</th>
+
+          </tr>
+          <tr>
+            <th><img src="./assets/Player.png" alt="Player Life Header"></th>
             <td id="lives">
               <img src="./assets/life.png" alt="life">
               <img src="./assets/life.png" alt="life">
