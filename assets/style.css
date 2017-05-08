@@ -8,6 +8,7 @@ table, tbody, tr, th, img, a {
   font-size: inherit;
   font-family: inherit;
   font-weight: inherit;
+  text-decoration: none;
 }
 
 ul {
