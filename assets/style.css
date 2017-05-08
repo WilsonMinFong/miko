@@ -50,6 +50,7 @@ th {
 }
 
 .modal {
+  display: none;
   position: fixed;
   z-index: 1;
   left: 0;
@@ -63,7 +64,7 @@ th {
 .modal-content {
   color: #2e0000;
   background-color: #F5F1ED;
-  margin: 5% auto;
+  margin: 10% auto;
   padding: 20px;
   border: 1px solid #888;
   border-radius: 5px;
@@ -82,6 +83,10 @@ th {
   color: #2e0000;
   text-decoration: none;
   cursor: pointer;
+}
+
+#instructionsModal {
+  display: block;
 }
 
 section, ul {
