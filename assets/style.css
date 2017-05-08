@@ -1,5 +1,5 @@
-body, canvas, div,
-table, tbody, tr, th, img {
+body, canvas, div, h1, h2, section, ul, li,
+table, tbody, tr, th, img, a {
   margin: 0;
   padding: 0;
   border: 0;
@@ -10,9 +10,14 @@ table, tbody, tr, th, img {
   font-weight: inherit;
 }
 
+ul {
+  list-style: none;
+}
+
 body {
   margin: 20px 40px;
   display: flex;
+  justify-content: center;
 
   background: #2e0000;
 
@@ -44,35 +49,58 @@ th {
 }
 
 .modal {
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.4);
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
 }
 
 .modal-content {
   color: #2e0000;
-    background-color: #F5F1ED;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
+  background-color: #F5F1ED;
+  margin: 5% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  border-radius: 5px;
+  width: 80%;
 }
 
 .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
 }
 
 .close:hover,
 .close:focus {
-    color: #2e0000;
-    text-decoration: none;
-    cursor: pointer;
+  color: #2e0000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+section, ul {
+  font-family: 'Montserrat', sans-serif;
+  margin: 12px 0;
+}
+
+.personal-links {
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+  font-size: 42px;
+}
+
+h2 {
+  font-size: 36px;
+}
+
+a:hover {
+  color: #A7C4C2;
 }
