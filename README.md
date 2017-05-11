@@ -25,13 +25,45 @@ Move your character using `←`, `↑`, `→`, and `↓`.  Shoot with `z` or
 
 ### 2D Rendering
 
-Miko utilizes EaselJS for 2D rendering.  Every object in the game canvas has an EaselJS `Container`.  This allows for easy update and removal of all EaselJS objects associated with a game object.
+Miko utilizes EaselJS for 2D rendering.  All game objects inherit from
+`BoardObject`, which includes:
+
+  - `container` property - All EaselJS `DisplayObject`s associated with
+    a `BoardObject` are added to this container before drawing on the
+    EaselJS `stage`.
+  - `draw` method - Adds a `BoardObject` to the EaselJS `stage`.
+  - `move` method - Updates the position of an object.
+
+Object movement is bound to EaselJS `Ticker`'s tick event for smooth
+canvas updates.
+
+```javascript
+bindFrameTick() {
+  const ticker = createjs.Ticker;
+
+  ticker.removeAllEventListeners();
+  ticker.framerate = 60;
+
+  ticker.addEventListener("tick", (e) => {
+    if (!ticker.paused) {
+      this.board.moveObjects(this.stage);
+      this.stage.update(e);
+
+      this.checkYokaiCount();
+      this.updateCurrentScore();
+      this.updateLives();
+
+      this.checkGameOver();
+    }
+  });
+}
+```
 
 ### High Score
 
-The user's personal high score is stored using Web API's local storage,
-so the high score is persisted across browser sessions until local
-storage is cleared.
+The user's personal high score is stored under the `high_score` key
+using Web API's local storage, so the high score is persisted across
+browser sessions until local storage is cleared.
 
 ```javascript
 getHighScore() {
