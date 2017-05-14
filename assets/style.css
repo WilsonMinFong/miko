@@ -41,6 +41,9 @@ img {
 
 .information-bar {
   margin: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 th {
@@ -109,7 +112,11 @@ h2 {
   font-size: 36px;
 }
 
-a:hover, button:hover {
+a:hover {
+  color: #519872;
+}
+
+button:hover {
   color: #2e0000;
   background: #EFE6DD;
   cursor: pointer;
