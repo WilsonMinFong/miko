@@ -29,7 +29,6 @@ Miko will be implemented with the following:
 
 - Vanilla JavaScript for game logic
 - Easel.js for rendering the game canvas
-- Howler.js for game audio
 - Webpack to bundle JS files
 
 The following scripts will be created:
