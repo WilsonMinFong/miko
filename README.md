@@ -25,14 +25,18 @@ Move your character using `←`, `↑`, `→`, and `↓`.  Shoot with `z` or
 
 ### 2D Rendering
 
-Miko utilizes EaselJS for 2D rendering.  All game objects inherit from
+Since it provides a simple API for working with the HTML5 canvas, Miko
+utilizes EaselJS for 2D rendering.  All game objects inherit from
 `BoardObject`, which includes:
 
   - `container` property - All EaselJS `DisplayObject`s associated with
     a `BoardObject` are added to this container before drawing on the
     EaselJS `stage`.
-  - `draw` method - Adds a `BoardObject` to the EaselJS `stage`.
-  - `move` method - Updates the position of an object.
+  - `draw` method - Adds a `BoardObject`'s container to the EaselJS
+    `stage`.
+  - `move` method - Updates the position of an object based on its
+    velocity.  Velocity-based movement updates allow simple scaling
+    through multiplying the velocity vector by a constant factor.
 
 Object movement is bound to EaselJS `Ticker`'s tick event for smooth
 canvas updates.
@@ -56,6 +60,27 @@ bindFrameTick() {
       this.checkGameOver();
     }
   });
+}
+```
+
+### Movement
+
+In order to accommodate multiple key presses for player movement,
+Miko uses objects to store key presses.  This gives the user full range
+of 2D movement, including diagonal movement.  In addition, key presses
+in opposite directions undergo an uninterrupted transition.  The player
+moves in the direction of the most recent horizontal and vertical
+keypress.
+
+```javascript
+_setMovementKeyPress(e) {
+  const key = e.key;
+
+  if (key === KEY_LEFT || key === KEY_RIGHT) {
+    this.horizontalKeys[key] = e.type === 'keydown';
+  } else if (key === KEY_UP || key === KEY_DOWN) {
+    this.verticalKeys[key] = e.type === 'keydown';
+  }
 }
 ```
 
