@@ -141,3 +141,26 @@ button {
 #leaderboardModal .modal-content {
   width: 25%;
 }
+
+#leaderboardModal table {
+  width: 100%;
+  text-align: center;
+}
+
+#highScoreModal .modal-content {
+  display: flex;
+  flex-direction: column;
+  width: 35%;
+}
+
+#highScoreModal label {
+  margin: 0 auto;
+  display: flex;
+}
+
+#highScoreModal input {
+  margin-left: 15px;
+  border: 1px solid #2e0000;
+  border-radius: 3px;
+  font-size: .5em;
+}
