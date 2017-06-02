@@ -21,6 +21,7 @@
   "homepage": "https://github.com/WilsonMinFong/miko#readme",
   "dependencies": {
     "CreateJS": "github:createjs/combined",
+    "firebase": "^3.9.0",
     "script-loader": "^0.7.0"
   }
 }
