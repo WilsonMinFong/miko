@@ -84,26 +84,47 @@ _setMovementKeyPress(e) {
 }
 ```
 
-### High Score
+### High Scores
+
+A global leaderboard of the top ten scores is stored using Google
+Firebase's [Realtime Database API](https://firebase.google.com/docs/database/).
+Database interactions are located in the `database.js` library file.
+The app keeps its leaderboard in sync using Firebase's `on` method to
+subscribe to leaderboard changes. Updates to the leaderboard rely on
+Firebase's `transaction` method to prevent corruption by concurrent
+leaderboard updates.
+
+```javascript
+getLeaderboard() {
+  firebase.database().ref('/scores/easy').on('value', (snapshot) => {
+    const highScores = snapshot.val();
+    this.highScores = highScores;
+    updateLeaderboard(highScores);
+  });
+},
+updateLeaderboard(scoreObj) {
+  firebase.database().ref('/scores/easy').transaction((scores) => {
+    if (scores) {
+      for (let i = 0; i < scores.length; i++) {
+        if (scoreObj.score > scores[i].score) {
+          const tempScoreObj = scores[i];
+          scores[i] = scoreObj;
+          scoreObj = tempScoreObj;
+        }
+      }
+    }
+    return scores;
+  });
+}
+```
 
 The user's personal high score is stored under the `high_score` key
 using Web API's local storage, so the high score is persisted across
 browser sessions until local storage is cleared.
 
-```javascript
-getHighScore() {
-  const highScore = localStorage.getItem('high_score') || 0;
-  this._updateHighScoreElement(highScore);
-}
-
-setHighScore() {
-  localStorage.setItem('high_score', this.board.currentScore);
-}
-```
-
 ## Future Features
 
-- [ ] Global leaderboard
+- [x] Global leaderboard
 - [ ] Multiple difficulty levels
 - [ ] Additional bullet patterns
 - [ ] Additional enemy patterns
